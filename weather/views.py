@@ -89,3 +89,8 @@ class WeatherDataAPIView(APIView):
         ]
 
         return Response(data, status=status.HTTP_200_OK)
+
+
+def weather_page(request):
+    return render(request, 'weather.html')
+
