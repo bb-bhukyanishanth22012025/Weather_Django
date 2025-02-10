@@ -127,7 +127,7 @@
             let longitude = document.getElementById("fetch_longitude").value;
             let start_date = document.getElementById("fetch_start_date").value;
             let end_date = document.getElementById("fetch_end_date").value;
-            fetch(`/weather/fetch?latitude=${latitude}&longitude=${longitude}&start_date=${start_date}&end_date=${end_date}`)
+            fetch(`/api/weather/fetch?latitude=${latitude}&longitude=${longitude}&start_date=${start_date}&end_date=${end_date}`)
                 .then(response => response.json())
                 .then(data => document.getElementById("response").innerText = JSON.stringify(data, null, 2));
         }
@@ -139,7 +139,7 @@
                 start_date: document.getElementById("save_start_date").value,
                 end_date: document.getElementById("save_end_date").value
             };
-            fetch(`/weather/`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+            fetch(`/api/weather/`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
                 .then(response => response.json())
                 .then(data => document.getElementById("response").innerText = JSON.stringify(data, null, 2));
         }
@@ -148,7 +148,7 @@
             let latitude = document.getElementById("get_latitude").value;
             let longitude = document.getElementById("get_longitude").value;
             let forecast_time = document.getElementById("get_forecast_time").value;
-            fetch(`/weather/?latitude=${latitude}&longitude=${longitude}&forecast_time=${forecast_time}`)
+            fetch(`/api/weather/?latitude=${latitude}&longitude=${longitude}&forecast_time=${forecast_time}`)
                 .then(response => response.json())
                 .then(data => document.getElementById("response").innerText = JSON.stringify(data, null, 2));
         }
